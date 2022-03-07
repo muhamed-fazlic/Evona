@@ -88,23 +88,46 @@ namespace Evona.Task.Persistence.Repositories
             _dbContext.RemoveRange(st);
             var Students = await _dbContext.Students.Where(x => x.BackupStatus == BackupStatuses.Created || x.BackupStatus == BackupStatuses.Updated).ToListAsync();
             var StudentsForUpdate = await _dbContext.StudentBackups.Where(x => Students.Select(x => x.Id).ToList().Contains(x.IdFromStudentTable)).ToListAsync();
-            foreach (var item in Students)
+
+            var numberOfRowsStudents = _dbContext.Students.Where(x => x.BackupStatus != BackupStatuses.Created).Count();
+            var numberOfRowsStudentsBackups = _dbContext.StudentBackups.Count();
+
+            //Code in if statements will run only if you delete row or many rows manually in studentsbackup by SQL command, then I run global backup: delete old rows and fill it with new rows from students
+            if (numberOfRowsStudents > numberOfRowsStudentsBackups)
             {
-                if (item.BackupStatus == BackupStatuses.Created)
+                var BackupStudentsForRemove = await _dbContext.StudentBackups.ToListAsync();
+                var CreateNewStudents = await _dbContext.Students.ToListAsync();
+                _dbContext.StudentBackups.RemoveRange(BackupStudentsForRemove);
+
+                foreach (var item in CreateNewStudents)
                 {
+                    item.BackupStatus = BackupStatuses.OK;
                     var newStudent = _mapper.Map<StudentBackup>(item);
                     newStudent.BackupStatus = BackupStatuses.OK;
                     _dbContext.StudentBackups.Add(newStudent);
                 }
-                else
-                {
-                    var student = StudentsForUpdate.Find(x => x.IdFromStudentTable == item.Id);
-                    student.BackupStatus = BackupStatuses.OK;
-                    _mapper.Map(item, student);
-                }
+
             }
-            StudentsForUpdate.ForEach(x => x.BackupStatus = BackupStatuses.OK);
-            Students.ForEach(x => x.BackupStatus = BackupStatuses.OK);
+            else
+            {
+                foreach (var item in Students)
+                {
+                    if (item.BackupStatus == BackupStatuses.Created)
+                    {
+                        var newStudent = _mapper.Map<StudentBackup>(item);
+                        newStudent.BackupStatus = BackupStatuses.OK;
+                        _dbContext.StudentBackups.Add(newStudent);
+                    }
+                    else
+                    {
+                        var student = StudentsForUpdate.Find(x => x.IdFromStudentTable == item.Id);
+                        student.BackupStatus = BackupStatuses.OK;
+                        _mapper.Map(item, student);
+                    }
+                }
+                StudentsForUpdate.ForEach(x => x.BackupStatus = BackupStatuses.OK);
+                Students.ForEach(x => x.BackupStatus = BackupStatuses.OK);
+            }
             var students = await _dbContext.Students.Where(x => x.BackupStatus == BackupStatuses.Created || x.BackupStatus == BackupStatuses.Updated).ToListAsync();
             return students;
         }
