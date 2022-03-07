@@ -25,7 +25,8 @@ namespace Evona.Task.Application.Features.Students.Handlers.Commands
 
            _unitOfWork.StudentRepository.Delete(student);
             var backupStudent = await _unitOfWork.StudentBackupRepository.Get(request.Id);
-            backupStudent.BackupStatus = BackupStatuses.Deleted;
+            if(backupStudent!=null)
+                backupStudent.BackupStatus = BackupStatuses.Deleted;
             await _unitOfWork.Save();
 
             return Unit.Value;

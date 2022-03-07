@@ -13,12 +13,14 @@ namespace Evona.Task.Persistence
         public static IServiceCollection ConfigurePersistenceServices(this IServiceCollection services, IConfiguration configuration)
         {
 
-            services.AddDbContext<EvonaTaskDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("EvonaTaskConnectionString")));
+            services.AddDbContext<EvonaTaskDbContext>(options => options.UseNpgsql(configuration.GetConnectionString("EvonaTaskConnectionString")));
 
             services.AddScoped(typeof(IGenericRepository<Student, StudentSearchDto>), typeof(GenericRepository<Student, StudentSearchDto>));
+            services.AddScoped(typeof(IGenericRepository<StudentBackup, object>), typeof(GenericRepository<StudentBackup, object>));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddScoped<IStudentRepository, StudentRepository>();
+            services.AddScoped<IStudentBackupRepository, StudentBackupRepository>();
 
             services.AddMemoryCache();
 
