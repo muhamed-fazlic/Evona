@@ -1,13 +1,11 @@
 # Evona
 This is a project that I created from scratch as a task for company called Evona using 
 ASP.NET Core 5.0 Web API, SQL Server, and PostgreSQL.
-# Evona
 
 # Requirements:
  Databases:
  -SQL Server ( SQL Server , graphical tool -> Microsoft SQL Server Management Studio )
  -PostgreSql ( Postgre Database Server, Graphical tool -> pgAdmin )
-# End Requirements section.
 
 # Setup:
 You have to set connection strings in appsettings.json inside the folder with path 'src/API' by your requirements.
@@ -35,7 +33,6 @@ Inside Package Manager Console you should run 2 commands:
   Password: evonauser
 
  After you update both databases you can run the application.
-# End Setup section.
 
 # Task:
 Create 3 tables:
@@ -63,7 +60,6 @@ Notice:
 
 - You can create new tables or methods if necessary
 
-# End Task section.
 
 # About the project: 
 I decided to create this project as a good template for every startup project.
@@ -98,7 +94,6 @@ Design principles encourage us to create more maintainable, understandable, and 
       Fluent API Validation ( Used for validation DTO-s before every interaction with database )
 
 -Email service using SendGrid
-# End About project section.
 
 # Me:
 I hope this template will find someone who would start a project or learn with it.
@@ -107,4 +102,3 @@ If someone who sees this has some questions about the project or whatever else f
              LinkedIn: https://www.linkedin.com/in/muhamed-fazlic/
 
 Have a great day and nice coding... :)
-# End Me section.
