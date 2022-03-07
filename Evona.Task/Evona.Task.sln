@@ -1,0 +1,89 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31613.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3A34824F-62E6-4FF7-B160-5719FB9AA1FF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{B57BC94A-BE1B-448A-B6A7-17BE401C59BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{B12151D7-4F4C-41D6-AE40-C9350FE3A61A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{7E96569D-969D-4DF6-8319-637006B56B04}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{CE90D311-48F6-4DB3-97D2-B23FC96C9BFE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{18C33C09-D91F-43F8-A13F-B5DA9AB26565}"
+	ProjectSection(SolutionItems) = preProject
+		Index.html = Index.html
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Evona.Task.Domain", "Evona.Task.Domain\Evona.Task.Domain.csproj", "{284A6EF2-45F0-4306-9C56-0D2031854C01}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Evona.Task.Application", "Evona.Task.Application\Evona.Task.Application.csproj", "{A2FB4E5A-4D02-4BB2-8AC0-4BC5E9E80A9C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Evona.Task.Infrastructure", "Evona.Task.Infrastructure\Evona.Task.Infrastructure.csproj", "{FE16C851-58CE-4A13-99A0-42DF42068DF7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Evona.Task.Persistence", "Evona.Task.Persistence\Evona.Task.Persistence.csproj", "{29F92911-6ABE-44F4-AE09-902F634FB49F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Evona.Task.Api", "Evona.Task.Api\Evona.Task.Api.csproj", "{72A30F68-C89C-40E8-AA6D-881FFE7E5C04}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Evona.Task.Application.UnitTests", "Evona.Task.Application.UnitTests\Evona.Task.Application.UnitTests.csproj", "{44B8CD52-C100-48C5-BE83-21575323B5AB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Evona.Task.Identity", "Evona.Task.Identity\Evona.Task.Identity.csproj", "{B0C533B9-E9E9-44B4-9B17-B1F313EBEB01}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{284A6EF2-45F0-4306-9C56-0D2031854C01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{284A6EF2-45F0-4306-9C56-0D2031854C01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{284A6EF2-45F0-4306-9C56-0D2031854C01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{284A6EF2-45F0-4306-9C56-0D2031854C01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2FB4E5A-4D02-4BB2-8AC0-4BC5E9E80A9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2FB4E5A-4D02-4BB2-8AC0-4BC5E9E80A9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2FB4E5A-4D02-4BB2-8AC0-4BC5E9E80A9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2FB4E5A-4D02-4BB2-8AC0-4BC5E9E80A9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE16C851-58CE-4A13-99A0-42DF42068DF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE16C851-58CE-4A13-99A0-42DF42068DF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE16C851-58CE-4A13-99A0-42DF42068DF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE16C851-58CE-4A13-99A0-42DF42068DF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29F92911-6ABE-44F4-AE09-902F634FB49F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29F92911-6ABE-44F4-AE09-902F634FB49F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29F92911-6ABE-44F4-AE09-902F634FB49F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29F92911-6ABE-44F4-AE09-902F634FB49F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72A30F68-C89C-40E8-AA6D-881FFE7E5C04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72A30F68-C89C-40E8-AA6D-881FFE7E5C04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72A30F68-C89C-40E8-AA6D-881FFE7E5C04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72A30F68-C89C-40E8-AA6D-881FFE7E5C04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44B8CD52-C100-48C5-BE83-21575323B5AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44B8CD52-C100-48C5-BE83-21575323B5AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44B8CD52-C100-48C5-BE83-21575323B5AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44B8CD52-C100-48C5-BE83-21575323B5AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0C533B9-E9E9-44B4-9B17-B1F313EBEB01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0C533B9-E9E9-44B4-9B17-B1F313EBEB01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0C533B9-E9E9-44B4-9B17-B1F313EBEB01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0C533B9-E9E9-44B4-9B17-B1F313EBEB01}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B12151D7-4F4C-41D6-AE40-C9350FE3A61A} = {3A34824F-62E6-4FF7-B160-5719FB9AA1FF}
+		{7E96569D-969D-4DF6-8319-637006B56B04} = {3A34824F-62E6-4FF7-B160-5719FB9AA1FF}
+		{CE90D311-48F6-4DB3-97D2-B23FC96C9BFE} = {3A34824F-62E6-4FF7-B160-5719FB9AA1FF}
+		{18C33C09-D91F-43F8-A13F-B5DA9AB26565} = {3A34824F-62E6-4FF7-B160-5719FB9AA1FF}
+		{284A6EF2-45F0-4306-9C56-0D2031854C01} = {7E96569D-969D-4DF6-8319-637006B56B04}
+		{A2FB4E5A-4D02-4BB2-8AC0-4BC5E9E80A9C} = {7E96569D-969D-4DF6-8319-637006B56B04}
+		{FE16C851-58CE-4A13-99A0-42DF42068DF7} = {CE90D311-48F6-4DB3-97D2-B23FC96C9BFE}
+		{29F92911-6ABE-44F4-AE09-902F634FB49F} = {CE90D311-48F6-4DB3-97D2-B23FC96C9BFE}
+		{72A30F68-C89C-40E8-AA6D-881FFE7E5C04} = {B12151D7-4F4C-41D6-AE40-C9350FE3A61A}
+		{44B8CD52-C100-48C5-BE83-21575323B5AB} = {B57BC94A-BE1B-448A-B6A7-17BE401C59BF}
+		{B0C533B9-E9E9-44B4-9B17-B1F313EBEB01} = {CE90D311-48F6-4DB3-97D2-B23FC96C9BFE}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3F5FA15D-1CAC-4F00-8323-9B8D1E11AEC5}
+	EndGlobalSection
+EndGlobal
