@@ -41,21 +41,21 @@ Create 3 tables:
 - AdminUsers
 
 Create API with methods:
-- SearchStudents method (anonymous)
-- AddStudent method (authorized)
-- GenerateStudents method(authorized) for generating dummy records
-- Send count limit for generating
-- DeleteStudent method (authorized)
-- Backup method (authorized) for copying data from Students to StudentsBackup
+- SearchStudents method (anonymous) ✓
+- AddStudent method (authorized) ✓
+- GenerateStudents method(authorized) for generating dummy records ✓
+- Send count limit for generating ✓
+- DeleteStudent method (authorized) ✓
+- Backup method (authorized) for copying data from Students to StudentsBackup ✓
 
 Bonus points:
-- Role-based authorization
-- Use repository pattern
-- Caching
-- Unit tests
-- Performance
-- Push code to Github
-- PostgreSQL
+- Role-based authorization ✓
+- Use repository pattern ✓
+- Caching ✓
+- Unit tests ✓
+- Performance ✓
+- Push code to Github ✓
+- PostgreSQL ✓
 Notice:
 
 - You can create new tables or methods if necessary
