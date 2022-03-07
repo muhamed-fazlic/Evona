@@ -56,9 +56,9 @@ Bonus points:
 - Performance ✓
 - Push code to Github ✓
 - PostgreSQL ✓
-Notice:
 
-- You can create new tables or methods if necessary
+Notice:
+ You can create new tables or methods if necessary
 
 
 # About the project: 
