@@ -24,11 +24,11 @@ Inside Package Manager Console you should run 2 commands:
 
  After running these two commands you will get users: 
 
-        (Admin)
+  (Admin)
   Email: admin@evona.com
   Password: evonaadmin
   
-        (User)
+  (User)
   Email: user@evona.com
   Password: evonauser
 
