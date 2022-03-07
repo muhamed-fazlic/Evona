@@ -36,9 +36,9 @@ Inside Package Manager Console you should run 2 commands:
 
 # Task:
 Create 3 tables:
-- Students (FirstName, LastName, JMBG, BirthDate)
-- StudentsBackup - Copy of Students
-- AdminUsers
+- Students (FirstName, LastName, JMBG, BirthDate) ✓
+- StudentsBackup - Copy of Students ✓
+- AdminUsers ✓
 
 Create API with methods:
 - SearchStudents method (anonymous) ✓
