@@ -3,7 +3,7 @@ using MediatR;
 
 namespace Evona.Task.Application.Features.Students.Requests.Commands
 {
-    public class BackupStudentCommand : IRequest<BaseCommandResponse>
+    public class BackupStudentCommand : IRequest<DefaultResponse>
     {
     }
 }

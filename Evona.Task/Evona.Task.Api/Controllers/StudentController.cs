@@ -58,7 +58,7 @@ namespace Evona.Task.Api.Controllers
 
         [HttpPost("Backup")]
         [Authorize(Roles = UserRoles.AdminRole)]
-        public async Task<ActionResult<BaseCommandResponse>> Backup()
+        public async Task<ActionResult<DefaultResponse>> Backup()
         {
             var response = await _mediator.Send(new BackupStudentCommand());
             return Ok(response);

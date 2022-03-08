@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Evona.Task.Application.Features.Students.Handlers.Commands
 {
-    public class BackupStudentCommandHandler : IRequestHandler<BackupStudentCommand, BaseCommandResponse>
+    public class BackupStudentCommandHandler : IRequestHandler<BackupStudentCommand, DefaultResponse>
     {
         private readonly IUnitOfWork _unitOfWork;
         public BackupStudentCommandHandler(IUnitOfWork unitOfWork)
@@ -15,11 +15,11 @@ namespace Evona.Task.Application.Features.Students.Handlers.Commands
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<BaseCommandResponse> Handle(BackupStudentCommand request, CancellationToken cancellationToken)
+        public async Task<DefaultResponse> Handle(BackupStudentCommand request, CancellationToken cancellationToken)
         {
             await _unitOfWork.StudentRepository.UpdateAll();
             await _unitOfWork.Save();
-            return new BaseCommandResponse { Success = true, Message = "Rows are updated!" };
+            return new DefaultResponse { Success = true, Message = "Rows are updated!" };
         }
     }
 }
