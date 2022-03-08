@@ -22,7 +22,15 @@ Inside Package Manager Console you should run 2 commands:
  update-database -context EvonaTaskDbContext
  update-database -context EvonaTaskIdentityDbContext
 
- After running these two commands you will get users: 
+
+If you get errors like this: 
+- Could not load assembly 'Evona.Task.Persistence'. Ensure it is referenced by the startup project 'Evona.Task.Domain'.
+
+- Could not load assembly 'Evona.Task.Identity'. Ensure it is referenced by the startup project 'Evona.Task.Domain'.
+
+Then you should go to your src/API folder to find Evona.Task.Api right click and find 'Set as Startup Project' to ensure your startup project is Evona.Task.Api, not domain or anything else.
+
+After running these two commands you will get users: 
 
   (Admin)
   Email: admin@evona.com
