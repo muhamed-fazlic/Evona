@@ -17,7 +17,7 @@ You have to set connection strings in appsettings.json inside the folder with pa
 After you set up connection strings, the next step you should do to properly work the entire application is:
 
 Inside Package Manager Console you should run 2 commands:
- *Make sure if you want to update EvonaTaskDbContext your default project should be: src/Infrastructure/Evona.Task.Persistence and for update and update EvonaTaskIdentityDbContext default project should be src/Infrastructure/Evona.Task.Identity
+ *Make sure if you want to update EvonaTaskDbContext your default project should be: src/Infrastructure/Evona.Task.Persistence and for update EvonaTaskIdentityDbContext default project should be: src/Infrastructure/Evona.Task.Identity
 
  update-database -context EvonaTaskDbContext
  update-database -context EvonaTaskIdentityDbContext
