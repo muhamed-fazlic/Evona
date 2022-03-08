@@ -16,7 +16,7 @@ namespace Evona.Task.Persistence
             services.AddDbContext<EvonaTaskDbContext>(options => options.UseNpgsql(configuration.GetConnectionString("EvonaTaskConnectionString")));
 
             services.AddScoped(typeof(IGenericRepository<Student, StudentSearchDto>), typeof(GenericRepository<Student, StudentSearchDto>));
-            services.AddScoped(typeof(IGenericRepository<StudentBackup, object>), typeof(GenericRepository<StudentBackup, object>));
+            services.AddScoped(typeof(IGenericRepository<StudentBackup, StudentSearchDto>), typeof(GenericRepository<StudentBackup, StudentSearchDto>));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddScoped<IStudentRepository, StudentRepository>();

@@ -46,31 +46,37 @@ namespace Evona.Task.Persistence.Repositories
             return true;
         }
 
+            /* 
+             If you uncomment code in if statement, you will get fully implemented memory cache,   <==============================
+             you can try it, I commented it because of getting better results while you testing    <==============================
+            */
         public async override Task<IReadOnlyList<Student>> GetAll(StudentSearchDto search = null)
         {
             //caching 
             List<Student> students;
-            if (search.FirstName == null && search.LastName == null && search.JMBG == null) // most common case
-            {
-                bool AlreadyExist = _memoryCache.TryGetValue("CachedStudents", out students);
-                if (!AlreadyExist)
-                {
-                    students = await _dbContext.Students.ToListAsync();
 
-                    var cacheEntryOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromSeconds(30));
-                    _memoryCache.Set("CachedStudents", students, cacheEntryOptions);
-                    return students;
-                }
-                return students;
-            }
+
+            //if (search.FirstName == null && search.LastName == null && search.JMBG == null) // most common case
+            //{
+            //    bool AlreadyExist = _memoryCache.TryGetValue("CachedStudents", out students);
+            //    if (!AlreadyExist)
+            //    {
+            //        students = await _dbContext.Students.ToListAsync();
+
+            //        var cacheEntryOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromSeconds(30));
+            //        _memoryCache.Set("CachedStudents", students, cacheEntryOptions);
+            //        return students;
+            //    }
+            //    return students;
+            //}
 
             var entity = _dbContext.Students.AsQueryable();
 
-            if (search.FirstName != null)
+            if (search?.FirstName != null)
                 entity = entity.Where(x => x.FirstName.Contains(search.FirstName));
-            if (search.LastName != null)
+            if (search?.LastName != null)
                 entity = entity.Where(x => x.LastName.Contains(search.LastName));
-            if (search.JMBG != null)
+            if (search?.JMBG != null)
                 entity = entity.Where(x => x.JMBG.Contains(search.JMBG));
 
             students = await entity.ToListAsync();
@@ -92,8 +98,13 @@ namespace Evona.Task.Persistence.Repositories
             var numberOfRowsStudents = _dbContext.Students.Where(x => x.BackupStatus != BackupStatuses.Created).Count();
             var numberOfRowsStudentsBackups = _dbContext.StudentBackups.Count();
 
-            //Code in if statements will run only if you delete row or many rows manually in studentsbackup by SQL command, then I run global backup: delete old rows and fill it with new rows from students
-            if (numberOfRowsStudents > numberOfRowsStudentsBackups)
+            /*
+             Code in if statement will run only if you delete a row or many rows manually in studentsbackup or students table by SQL command, 
+             then I run the global backup: delete old rows and fill it with new rows from students.
+             If you do crud operations through the application it will never cause code in if statement, it will update only rows that are changed, not a full copy,
+             that's because of logic that Implemented with added property BackupStatus
+            */
+            if (numberOfRowsStudents != numberOfRowsStudentsBackups)
             {
                 var BackupStudentsForRemove = await _dbContext.StudentBackups.ToListAsync();
                 var CreateNewStudents = await _dbContext.Students.ToListAsync();

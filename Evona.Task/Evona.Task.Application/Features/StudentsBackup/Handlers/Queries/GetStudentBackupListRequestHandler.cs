@@ -11,17 +11,17 @@ namespace Evona.Task.Application.Features.StudentsBackup.Handlers.Queries
 {
     public class GetStudentBackupListRequestHandler : IRequestHandler<GetStudentBackupListRequest, List<StudentBackupDto>>
     {
-        private readonly IStudentBackupRepository _studentRepository;
+        private readonly IStudentBackupRepository _studentBackupRepository;
         private readonly IMapper _mapper;
 
         public GetStudentBackupListRequestHandler(IStudentBackupRepository studentRepository, IMapper mapper)
         {
-            _studentRepository = studentRepository;
+            _studentBackupRepository = studentRepository;
             _mapper = mapper;
         }
         public async Task<List<StudentBackupDto>> Handle(GetStudentBackupListRequest request, CancellationToken cancellationToken)
         {
-            var Students = await _studentRepository.GetAll();
+            var Students = await _studentBackupRepository.GetAll(request.Search);
             return _mapper.Map<List<StudentBackupDto>>(Students);
         }
     }

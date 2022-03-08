@@ -34,6 +34,8 @@ Inside Package Manager Console you should run 2 commands:
 
  After you update both databases you can run the application.
 
+When you successfully login as admin, you will get in a response JWT token, copy that token and go to Authorize button on Swagger, and inside the input field paste token in the format like 'Bearer eYQARBC...', of course without ' ', then you can consume all endpoints as admin. The same logic stands for user.
+
 # Task:
 Create 3 tables:
 - Students (FirstName, LastName, JMBG, BirthDate) ✓

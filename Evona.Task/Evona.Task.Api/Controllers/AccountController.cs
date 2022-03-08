@@ -21,10 +21,11 @@ namespace Evona.Task.Api.Controllers
             return Ok(await _authService.Login(request));
         }
 
-        [HttpPost("Register")]
-        public async Task<ActionResult<RegistrationResponse>> Register(RegistrationRequest request)
-        {
-            return Ok(await _authService.Register(request));
-        }
+        //Commented because the logic in the register will be implemented, now it returns only NotImplementedException because it's not a necessary task
+        //[HttpPost("Register")]
+        //public async Task<ActionResult<RegistrationResponse>> Register(RegistrationRequest request)
+        //{
+        //    return Ok(await _authService.Register(request));
+        //}
     }
 }

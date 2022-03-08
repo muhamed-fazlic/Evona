@@ -1,4 +1,5 @@
-﻿using Evona.Task.Application.DTOs.StudentBackup;
+﻿using Evona.Task.Application.DTOs.Student;
+using Evona.Task.Application.DTOs.StudentBackup;
 using Evona.Task.Application.Features.StudentsBackup.Request.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -20,9 +21,9 @@ namespace Evona.Task.Api.Controllers
         }
         [HttpGet]
         [AllowAnonymous]
-        public async Task<ActionResult<List<StudentBackupDto>>> Get([FromQuery] object search)
+        public async Task<ActionResult<List<StudentBackupDto>>> Get([FromQuery] StudentSearchDto search)
         {
-            var students = await _mediator.Send(new GetStudentBackupListRequest());
+            var students = await _mediator.Send(new GetStudentBackupListRequest() { Search=search});
             return Ok(students);
         }
 
