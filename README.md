@@ -88,7 +88,7 @@ Design principles encourage us to create more maintainable, understandable, and 
 
 -Example of unit testing
 
--Memory caching ( If we have API that is very often called, caching is a very good solution because we save data for some period (maybe 30 sec) in cache memory then return result from the cache and avoid every single request made a call to a database.  )
+-Memory caching ( If we have API that is being often called, caching is a very good solution because we save data for some period (let's say for 30 sec) in cache memory then return result from the cache and avoid every single request made a call to a database.  )
 
 -Tools: 
       MediatR ( Pattern/Library is used to reduce dependencies between objects )
